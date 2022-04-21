@@ -7,7 +7,7 @@ export const getGlobalData = () => {
     : '我的私人站点';
   const footerText = process.env.BLOG_FOOTER_TEXT
     ? decodeURI(process.env.BLOG_FOOTER_TEXT)
-    : 'All rights reserved.';
+    : '万事开头难.';
 
   return {
     name,
