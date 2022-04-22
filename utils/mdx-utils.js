@@ -4,13 +4,13 @@ import matter from 'gray-matter';
 import { serialize } from 'next-mdx-remote/serialize';
 import rehypePrism from '@mapbox/rehype-prism';
 
-// POSTS_PATH is useful when you want to get the path to a specific file
+// 当您想要获取特定文件的路径时，POSTS_PATH非常有用
 export const POSTS_PATH = path.join(process.cwd(), 'posts');
 
-// postFilePaths is the list of all mdx files inside the POSTS_PATH directory
+// postFilePaths 是POSTS_PATH目录中所有 mdx 文件的列表
 export const postFilePaths = fs
   .readdirSync(POSTS_PATH)
-  // Only include md(x) files
+  // 仅包含 md（x） 文件
   .filter((path) => /\.mdx?$/.test(path));
 
 export const sortPostsByDate = (posts) => {
@@ -45,7 +45,7 @@ export const getPostBySlug = async (slug) => {
   const { content, data } = matter(source);
 
   const mdxSource = await serialize(content, {
-    // Optionally pass remark/rehype plugins
+    // Optionally pass remark/rehype plugins  可选插件
     mdxOptions: {
       remarkPlugins: [],
       rehypePlugins: [rehypePrism],
